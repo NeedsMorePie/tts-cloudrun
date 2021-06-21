@@ -1,6 +1,8 @@
 # TTS Cloudrun
 
-## Requirements
+## Development
+
+### Requirements
 
 * Python 3.8
 
@@ -8,7 +10,7 @@
 
 Run `bash install_py38.sh` to install python under `$HOME/.pyenv/versions/3.8.0/bin/python3.8`.
 
-## Repository setup
+### Repository setup
 
 Download coqui_tts:
 
@@ -25,6 +27,14 @@ Install coqui_tts:
 python3.8 -m venv env
 source env/bin/activate
 pip install -e ./coqui_tts
+```
+
+### Run
+
+```
+source env/bin/activate
+PORT=8080
+gunicorn --bind 0.0.0.0:$PORT --workers 1 --threads 8 --timeout 0 app:app
 ```
 
 ## Docker
