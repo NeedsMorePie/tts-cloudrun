@@ -23,16 +23,6 @@ synthesizer = Synthesizer(
     encoder_config=None,
     use_cuda=False,
 )
-synthesizer2 = Synthesizer(
-    tts_checkpoint='./tts_model.pth.tar',
-    tts_config_path='./tts_config.json',
-    tts_speakers_file=None,
-    vocoder_checkpoint='./vocoder_model.pth.tar',
-    vocoder_config='./vocoder_config.json',
-    encoder_checkpoint=None,
-    encoder_config=None,
-    use_cuda=False,
-)
 
 
 @app.route('/', methods=['GET'])
