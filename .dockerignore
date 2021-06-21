@@ -1,6 +1,7 @@
 coqui_tts/
 __pycache__/
 env/
+tmp/
 
 README.md
 Dockerfile
