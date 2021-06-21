@@ -41,7 +41,7 @@ DOCKER_IMG="gcr.io/$PROJECT_ID/tts-cloudrun"
 ### Build
 
 ```
-gcloud builds submit --tag $DOCKER_IMG
+gcloud builds submit --tag $DOCKER_IMG --timeout=1800
 ```
 
 ### Run
