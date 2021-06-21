@@ -54,9 +54,37 @@ DOCKER_IMG="gcr.io/$PROJECT_ID/tts-cloudrun"
 gcloud builds submit --tag $DOCKER_IMG --timeout=1800
 ```
 
-### Run
+### Run locally
 
 ```
 docker pull $DOCKER_IMG
 docker run -p 8080:8080 $DOCKER_IMG
+```
+
+### Deploy
+
+```
+REGION="us-central1"
+gcloud run deploy tts-cloudrun \
+  --image $DOCKER_IMG \
+  --platform managed \
+  --region $REGION \
+  --allow-unauthenticated
+SERVICE_URL=$( \
+  gcloud run services describe tts-cloudrun \
+  --platform managed \
+  --region $REGION \
+  --format "value(status.url)" \
+)
+echo $SERVICE_URL
+```
+
+### Cleanup
+
+```
+REGION="us-central1"
+gcloud container images delete $DOCKER_IMG
+gcloud run services delete tts-cloudrun \
+  --platform managed \
+  --region $REGION
 ```
