@@ -13,7 +13,7 @@ RUN \
     apt-get dist-upgrade -y; \
     apt-get autoremove -y; \
     apt-get clean; \
-    apt-get install -y unzip gcc build-essential; \
+    apt-get install -y unzip gcc build-essential libsndfile1; \
     unzip v0.0.15.zip; \
     rm -f v0.0.15.zip; \
     mv TTS-0.0.15 coqui_tts; \

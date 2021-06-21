@@ -5,6 +5,7 @@
 ### Requirements
 
 * Python 3.8
+* `sudo apt-get install libsndfile1`
 
 ### Installation on cloud shell
 
